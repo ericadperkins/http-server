@@ -1,0 +1,20 @@
+    function correctEmailFormat($email){
+        $correctEmailFormat = true;
+
+        //Checks for input
+        if(empty($email)){
+            $correctEmailFormat = false;
+        }
+
+        //Uses built-in email validator
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            $correctEmailFormat = false;
+        }
+
+        //Requires that a domain must end in a letter
+        if(preg_match("/[^A-Z]/i",$email[strlen($email) -1])){
+            $correctEmailFormat = false;
+        }
+        
+        return $correctEmailFormat;
+    }
