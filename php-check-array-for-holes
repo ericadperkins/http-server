@@ -1,0 +1,13 @@
+function isEmpty($myArray){
+    $isEmpty = false;
+
+    for($i = 0; $i < sizeof($myArray); $i++){
+       if(empty($myArray[$i])){
+            $isEmpty = true;
+            break;
+       }
+    }
+    return $isEmpty;
+ }
+ 
+ //returns a boolean
