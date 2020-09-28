@@ -1,0 +1,33 @@
+<?php
+function weekday(){
+                
+        $weekdays = array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+
+        $daynum = array();
+
+        $day = date("w");
+
+        $day = intval($day);
+
+        array_push($daynum,$day);
+
+        while(sizeof($daynum) < 7){
+
+            $day+=1;
+
+            array_push($daynum,$day);
+
+            if($day >= 6){$day -= 7;}
+        }
+
+        $currentWeek = array();
+
+        for($i = 0; $i < 7; $i++){array_push($currentWeek,$weekdays[$daynum[$i]]);}
+
+        return $currentWeek;
+    }
+
+    for($i=0; $i < count(weekday()); $i++){
+        echo weekday()[$i] . "<br>";
+    }
+?>
